@@ -102,6 +102,7 @@ script = ExtResource("1_p1qno")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 process_mode = 1
 root_node = NodePath("../MeleeSkin/Skin")
+callback_mode_discrete = 0
 tree_root = SubResource("AnimationNodeBlendTree_o08rm")
 anim_player = NodePath("../MeleeSkin/Skin/AnimationPlayer")
 parameters/current_length = 0.666667
