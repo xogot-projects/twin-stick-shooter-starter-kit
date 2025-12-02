@@ -276,10 +276,13 @@ func insert_bbcode(open_tag: String, close_tag: String = "") -> void:
 
 # Insert text at current caret position
 # Move Caret down 1 line if not => END
-func insert_text(text: String) -> void:
+func insert_text(text: String, line: int, column: int, replace_selection: bool = false, select_inserted: bool = false) -> void:
+	# If a specific position was provided, move the caret there before inserting
+	set_caret_line(line)
+	set_caret_column(column)
 	if text != "=> END":
-		insert_text_at_caret(text+"\n")
-		set_caret_line(get_caret_line()+1)
+		insert_text_at_caret(text + "\n")
+		set_caret_line(get_caret_line() + 1)
 	else:
 		insert_text_at_caret(text)
 	grab_focus()
