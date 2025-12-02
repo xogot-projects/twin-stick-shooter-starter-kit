@@ -6,12 +6,13 @@ const DialogueSettings = preload("./settings.gd")
 const DialogueManagerParseResult = preload("./components/parse_result.gd")
 
 
-func _parse_file(path: String, msgids: Array, msgids_context_plural: Array) -> void:
+func _parse_file(path: String) -> Array[PackedStringArray]:
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
 	var text: String = file.get_as_text()
 
 	var data: DialogueManagerParseResult = DialogueManagerParser.parse_string(text, path)
 	var known_keys: PackedStringArray = PackedStringArray([])
+	var msgids_context_plural: Array[PackedStringArray] = []
 
 	# Add all character names if settings ask for it
 	if DialogueSettings.get_setting("export_characters_in_translation", true):
@@ -37,6 +38,8 @@ func _parse_file(path: String, msgids: Array, msgids_context_plural: Array) -> v
 			msgids_context_plural.append([line.text.replace('"', '\\"'), "", ""])
 		else:
 			msgids_context_plural.append([line.text.replace('"', '\\"'), line.translation_key.replace('"', '\\"'), ""])
+
+	return msgids_context_plural
 
 
 func _get_recognized_extensions() -> PackedStringArray:
