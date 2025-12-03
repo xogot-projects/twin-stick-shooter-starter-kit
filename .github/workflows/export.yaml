@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Export to Asset-lib
-    runs-on: macos-26
+    runs-on: ${{ github.ACTIONS_RUNNER }}
 
     env:
       uploadUrl: ${{ secrets.uploadUrl }}
