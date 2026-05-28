@@ -8,12 +8,16 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Twin Shooter Starting Kit"
 config/tags=PackedStringArray("starterkit")
 run/main_scene="res://scenes/test_AI.tscn"
-config/features=PackedStringArray("4.4")
+config/features=PackedStringArray("4.6")
 config/icon="res://project_icon.png"
 
 [autoload]
@@ -30,7 +34,6 @@ window/size/viewport_height=1080
 window/size/always_on_top=true
 window/size/window_width_override=960
 window/size/window_height_override=540
-window/stretch/scale_mode="fractional"
 
 [editor_plugins]
 
@@ -195,8 +198,8 @@ p1_camera_RL={
 
 [input_devices]
 
-pointing/emulate_touch_from_mouse=true
 virtual_controller/ios/enable_controller=true
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
@@ -221,8 +224,8 @@ lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
 global_illumination/voxel_gi/quality=1
 environment/ssao/quality=4
 environment/ssil/quality=4
-global_illumination/sdfgi/probe_ray_count=3
 anti_aliasing/quality/msaa_3d=3
+global_illumination/sdfgi/probe_ray_count=3
 environment/defaults/default_environment="res://scenes/default_env.tres"
 vram_compression/import_etc=true
 
